@@ -122,6 +122,7 @@
 <p> - rm package-lock.json -fo </p>
 <p> - npm install react-scripts@latest </p>
 <p> - npm install ajv@latest </p>
+<p> - npm install @mui/material @emotion/react @emotion/styled axios </p>
 
 <p> Sonra client klasörüne gidip sağ tuş VSCode ile aç diyoruz. Chrome’da kodun görünmesi için package-json’a eklenir.  </p>
 <p> "build": "GENERATE_SOURCEMAP=false react-scripts build", </p>
