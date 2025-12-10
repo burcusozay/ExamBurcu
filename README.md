@@ -160,4 +160,5 @@
 <p> dotnet add package ClosedXML </p>
 
 ## Worker Service Packages 
- <p> dotnet add package Microsoft.Extensions.Caching.StackExchangeRedis </p>
+<p> dotnet add package Microsoft.Extensions.Caching.StackExchangeRedis </p> 
+<p> dotnet add package Microsoft.Extensions.Http </p> 
