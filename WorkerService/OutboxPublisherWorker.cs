@@ -62,6 +62,7 @@ public class OutboxPublisherWorker : BackgroundService
 
                         try
                         {
+                            // Burada HSYS'ye istek at
                             _logger.LogInformation($"Mesaj {msg.VaccineApplicationId} iþleniyor.");
                             var markResponse = await client.PostAsync($"{_serviceAccount.ApiCallEndpoint}/MarkProcessed/{msg.VaccineApplicationId}", null, stoppingToken);
                             markResponse.EnsureSuccessStatusCode();
