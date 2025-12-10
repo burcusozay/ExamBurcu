@@ -99,7 +99,8 @@
 
 ## Redis 
 
-<p>dotnet add package Microsoft.Extensions.Caching.StackExchangeRedis</p>
+<p> dotnet add package Microsoft.Extensions.Caching.StackExchangeRedis </p>
+<p> dotnet add package StackExchange.Redis </p>
 
 ## React 
 <p>Cmd console > npx create-react-app examapp (If does not work instructions should be done below)</p>
