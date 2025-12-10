@@ -3,6 +3,8 @@ using ExamBurcu.Data;
 using ExamBurcu.Dtos;
 using ExamBurcu.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Distributed;
+using System.Text.Json;
 using VaccineExam.Core;
 using VaccineExam.Repository;
 using VaccineExam.UnitOfWork;
@@ -15,13 +17,15 @@ namespace ExamBurcu.Services
         private readonly IUnitOfWork _unitOfWork;
         private readonly IRepository<vaccineapplication, long> _vaccineapplicationRepository;
         private readonly IRepository<vaccine, long> _vaccineRepository;
+        private readonly IDistributedCache _cache; // YENİ
 
-        public VaccineApplicationService(IUnitOfWork unitOfWork, IMapper mapper)
+        public VaccineApplicationService(IUnitOfWork unitOfWork, IMapper mapper, IDistributedCache cache)
             : base(mapper)
         {
             _unitOfWork = unitOfWork;
             _vaccineapplicationRepository = _unitOfWork.GetRepository<vaccineapplication, long>();
             _vaccineRepository = _unitOfWork.GetRepository<vaccine, long>();
+            _cache = cache; // DI'dan cache'i al
         }
 
         public async Task<List<VaccineApplicationDto>> GetAllAsync()
@@ -77,6 +81,28 @@ namespace ExamBurcu.Services
 
             var vaccineapplicationEntity = MapToEntity(model);
             vaccineapplicationEntity = await _vaccineapplicationRepository.InsertAsync(vaccineapplicationEntity);
+
+            if (vaccineapplicationEntity.id > 0)
+            {
+                // Kuyruk Mesajı Oluştur
+                var notificationPayload = new HsysNotificationPayload
+                {
+                    VaccineApplicationId = vaccineapplicationEntity.id,
+                    ChildId = vaccineapplicationEntity.childid,
+                    VaccineId = vaccineapplicationEntity.vaccineid
+                    // Diğer gerekli alanlar buraya eklenebilir
+                };
+
+                var message = JsonSerializer.Serialize(notificationPayload);
+                var queueKey = $"HSYS_QUEUE:{Guid.NewGuid()}"; // Benzersiz bir kuyruk anahtarı oluştur
+
+                // Redis'e mesajı ekle (Bu bir kuyruk simülasyonudur, gerçek kuyruk sistemleri daha karmaşıktır)
+                // Bu, WorkerService'in okuyacağı "Görevler" listesine eklenir.
+                await _cache.SetStringAsync(queueKey, message, new DistributedCacheEntryOptions
+                {
+                    AbsoluteExpirationRelativeToNow = TimeSpan.FromHours(1) // Görev 1 saat içinde işlenmeli
+                });
+            }
 
             return MapToDto(vaccineapplicationEntity); ;
         }
