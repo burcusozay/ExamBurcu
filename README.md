@@ -98,8 +98,7 @@
 <p>dotnet add package FluentValidation.AspNetCore (ModelView.proj and WebAPI.proj)</p>
 
 ## Redis 
-
-<p>dotnet add package Microsoft.Extensions.Caching.StackExchangeRedis</p>
+<p> dotnet add package Microsoft.Extensions.Caching.StackExchangeRedis </p> 
 
 ## React 
 <p>Cmd console > npx create-react-app examapp (If does not work instructions should be done below)</p>
@@ -162,3 +161,6 @@
 ## Worker Service Packages 
 <p> dotnet add package Microsoft.Extensions.Caching.StackExchangeRedis </p> 
 <p> dotnet add package Microsoft.Extensions.Http </p> 
+<p>dotnet add package Microsoft.Extensions.Caching.StackExchangeRedis</p> 
+<p>dotnet add package StackExchange.Redis</p> 
+<p>dotnet add package DistributedLock </p> 
