@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="ExamBurcu/ExamBurcu.csproj" />
+  <Project Path="WorkerService/WorkerService.csproj" />
+</Solution>
