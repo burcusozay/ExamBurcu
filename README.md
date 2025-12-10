@@ -121,6 +121,7 @@
 <p> - rm node_modules -r -fo </p>
 <p> - rm package-lock.json -fo </p>
 <p> - npm install react-scripts@latest </p>
+<p> rmdir /s /q node_modules  </p>
 
 <p> Sonra client klasörüne gidip sağ tuş VSCode ile aç diyoruz. Chrome’da kodun görünmesi için package-json’a eklenir.  </p>
 <p> "build": "GENERATE_SOURCEMAP=false react-scripts build", </p>
