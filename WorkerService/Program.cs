@@ -16,9 +16,10 @@ internal class Program
         });
 
         builder.Services.Configure<ServiceAccountOptions>(builder.Configuration.GetSection("ServiceAccount"));
+        builder.Services.Configure<RedisOptions>(builder.Configuration.GetSection("Redis"));
+        builder.Services.Configure<RabbitMqOptions>(builder.Configuration.GetSection("RabbitMQ"));
 
         builder.Services.AddSingleton<IConnectionMultiplexer>(multiplexer => ConnectionMultiplexer.Connect(builder.Configuration["Redis:ConnectionString"]));
-
 
         builder.Services.AddHostedService<Worker>();
         builder.Services.AddHostedService<OutboxPublisherWorker>();
