@@ -163,3 +163,5 @@
 ## Worker Service Packages 
 <p> dotnet add package Microsoft.Extensions.Caching.StackExchangeRedis </p> 
 <p> dotnet add package Microsoft.Extensions.Http </p> 
+<p>dotnet add package Microsoft.Extensions.Caching.StackExchangeRedis</p> 
+<p>dotnet add package StackExchange.Redis</p> 
