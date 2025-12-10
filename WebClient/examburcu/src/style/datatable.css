@@ -1,0 +1,172 @@
+/* Mevcut Stilleriniz... */
+.data-table-container {
+    padding: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-top: 20px;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+table.generic-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.generic-table th,
+.generic-table td {
+    padding: 12px 15px;
+    border: 1px solid #e0e0e0;
+    text-align: left;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.generic-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #495057;
+    text-transform: capitalize;
+}
+
+.generic-table tr:hover {
+    background-color: #f1f5f9;
+}
+
+.pagination-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.pagination-controls button {
+    padding: 8px 16px;
+    border: 1px solid #dee2e6;
+    background-color: #6d89d8;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.2s;
+}
+
+.pagination-controls button:hover:not(:disabled) {
+    background-color: #3a5fc3;
+}
+
+.pagination-controls button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.pagination-info {
+    font-size: 0.9em;
+    color: #6c757d;
+}
+
+.table-message {
+    text-align: center;
+    padding: 50px;
+    font-size: 1.1em;
+    color: #6c757d;
+}
+
+/* İşlem Butonları için Stiller */
+.action-button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85em;
+    transition: all 0.2s ease;
+    margin: 0 2px;
+}
+
+.action-button.edit {
+    background-color: #67a179;
+    color: white;
+}
+
+.action-button.edit:hover {
+    background-color: #4b7558;
+}
+
+.action-button.delete {
+    background-color: #b4434e;
+    color: white;
+}
+
+.action-button.delete:hover {
+    background-color: #89343c;
+}
+ 
+.action-button.archive {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.action-button.archive:hover {
+    background-color: #138496;
+}
+
+/* Tablo başlığı ve butonların hizalanması için */
+.table-header {
+    display: flex;
+    /* DÜZELTME: justify-content kaldırıldı. Hizalama artık margin ile yapılacak. */
+    align-items: center; /* Butonları ve başlığı dikeyde ortalar */
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.table-header h2 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #343a40;
+    /* DÜZELTME: Bu kural, kendisinden sonra gelen tüm elemanları sağa iter. */
+    margin-right: auto;
+}
+
+/* Sağ üstteki butonları gruplayan ve aralarında boşluk bırakan container */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Butonlar arasına 10px boşluk ekler */
+}
+
+/* Header butonları için ortak stiller */
+.add-new-button,
+.export-excel-button {
+    padding: 8px 16px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.add-new-button {
+    background-color: #007bff;
+    margin-left: 10px;
+}
+
+.add-new-button:hover {
+    background-color: #0055af;
+}
+
+.export-excel-button {
+    background-color: #1d6f42; /* Excel Yeşili */
+    margin-left: 10px;
+}
+
+.export-excel-button:hover {
+    background-color: #165934;
+}
